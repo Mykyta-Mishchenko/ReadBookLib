@@ -3,7 +3,7 @@
     var statusColor = "";
     switch (Model.Status)
     {
-        case BookStatus.Admited :
+        case BookStatus.Admitted :
             statusColor = "#2d8c46";
             break;
         case BookStatus.Uploaded :
@@ -14,9 +14,9 @@
             break;
     }
 }
-<div class="card m-1 p-1" style="width: 18rem;">
+<div class="card m-1 p-1 col-2" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
+        <h5 class="card-title fixed-title">@Model.Name</h5>
         <p class="card-text in-row"><b>Description: </b>@Model.Description</p>
     </div>
     <ul class="list-group list-group-flush">

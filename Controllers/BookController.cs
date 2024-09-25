@@ -5,6 +5,7 @@ using ReadBookLib.Interfaces;
 using ReadBookLib.Models;
 using ReadBookLib.Models.ViewModels;
 using ReadBookLib.Repository;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ReadBookLib.Controllers
 {
@@ -20,7 +21,10 @@ namespace ReadBookLib.Controllers
         [HttpGet]
         public IActionResult Index([FromQuery]int bookId)
         {
-            return View(_bookRepository.GetBook(bookId));
+            var book = _bookRepository.GetBook(bookId);
+            if (book == null) return RedirectToAction("Index","Home");
+
+			return View(book);
         }
         [HttpGet]
         public IActionResult GetPdf(int Id)

@@ -23,13 +23,13 @@ namespace ReadBookLib.Controllers
 			return View(new BookListViewModel
 			{
 				Books = _bookRepository.Books
-					.Where(b=> b.Status == BookStatus.Admited)
+					.Where(b=> b.Status == BookStatus.Admitted)
 					.OrderByDescending(b=>b.Id)
 					.Skip(ItemsPerPage * (booksPage - 1))
 					.Take(ItemsPerPage),
 				PagingInfo = new PagingInfo
 				{
-					TotalItems = _bookRepository.Books.Where(b => b.Status == BookStatus.Admited).Count(),
+					TotalItems = _bookRepository.Books.Where(b => b.Status == BookStatus.Admitted).Count(),
 					ItemsPerPage = ItemsPerPage,
 					CurrentPage = booksPage,
 					CurrentAction = "Index"
@@ -44,17 +44,24 @@ namespace ReadBookLib.Controllers
 			{
 				return RedirectToAction("Index");
 			}
-			return View("Index",new BookListViewModel
-			{
-				Books = _bookRepository.Books
-					.Where(b => b.Status == BookStatus.Admited)
-					.Where(b=> b.Name.Contains(name))
+
+			var books = _bookRepository.Books
+					.Where(b => b.Status == BookStatus.Admitted)
+					.Where(b => b.Name.Contains(name))
 					.OrderByDescending(b => b.Id)
 					.Skip(ItemsPerPage * (booksPage - 1))
-					.Take(ItemsPerPage),
+					.Take(ItemsPerPage);
+			if(books.Count() == 0)
+			{
+				books = _bookRepository.Books;
+			}
+
+			return View("Index",new BookListViewModel
+			{
+				Books = books,
 				PagingInfo = new PagingInfo
 				{
-					TotalItems = _bookRepository.Books.Where(b => b.Status == BookStatus.Admited && b.Name.Contains(name)).Count(),
+					TotalItems = _bookRepository.Books.Where(b => b.Status == BookStatus.Admitted && b.Name.Contains(name)).Count(),
 					ItemsPerPage = ItemsPerPage,
 					CurrentPage = booksPage,
 					CurrentAction = "GetBooksByName"
@@ -65,7 +72,9 @@ namespace ReadBookLib.Controllers
 		[HttpGet]
 		public IActionResult BookPage(int Id)
 		{
-			return View(_bookRepository.GetBook(Id));
+			var book = _bookRepository.GetBook(Id);
+			if(book == null) return RedirectToAction("Index");
+			return View(book);
 		}
 	}
 }

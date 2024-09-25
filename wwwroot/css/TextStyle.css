@@ -11,3 +11,6 @@
     height: 100px;
     overflow:hidden;
 }
+.fixed-title{
+    height:50px !important;
+}

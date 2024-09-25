@@ -3,7 +3,7 @@
 	public enum BookStatus
 	{
 		Uploaded,
-		Admited,
+		Admitted,
 		Deleted
 	}
 }

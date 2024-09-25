@@ -68,6 +68,6 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 
-//app.UseMiddleware<FileExceptionMiddleware>();
+app.UseMiddleware<FileExceptionMiddleware>();
 
 app.Run();
