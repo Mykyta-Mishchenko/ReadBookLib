@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html class="h-100">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/TextStyle.css" rel="stylesheet"/>
+</head>
+<body class="bg-light h-100">
+    <div class="container-fluid h-100">
+        <div class="row bg-dark">
+            <nav class="navbar navbar-dark justify-content-between px-2">
+                <a class="navbar-brand">ReadBookLib</a>
+                <div class="mr-5">
+                    <a class="btn btn-success my-2 my-sm-0" asp-page="/UploadBookPage">Upload new book</a>
+                    <partial name="_Identity" />
+                </div>
+            </nav>
+        </div>
+        <div class="row h-100">
+            <div class="col-lg-10 col-12 offset-lg-1">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

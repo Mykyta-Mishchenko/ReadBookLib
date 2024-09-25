@@ -1,0 +1,44 @@
+﻿@model Book
+
+<div class="d-flex justify-content-center mt-3">
+    <form class="col-lg-8 border rounded p-4 bg-white" asp-controller="Book" asp-action="Update" method="post">
+        <input type="hidden" asp-for="@Model.Id" />
+        <div class="form-group">
+            <label>Name:</label>
+            <input asp-for="@Model.Name" class="form-control col-md-6" placeholder="Name">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-2">
+            <label>Description:</label>
+            <textarea asp-for="@Model.Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="@Model.Description"></span>
+        </div>
+        <div class="row mt-2">
+            <div class="form-group col-md-12">
+                <label>Location:</label>
+                <label class="form-control">@Model.StorageLocation</label>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Pages:</label>
+                <label class="form-control">@Model.TotalPagesNum</label>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="form-group col-md-6">
+                <label> Status:</label>
+                <select asp-for="@Model.Status"
+                        asp-items="Html.GetEnumSelectList<BookStatus>()" class="form-control">
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label> Status timeset: </label>
+                <label class="form-control">@Model.StatusTime</label>
+            </div>
+        </div>
+        <div class="mt-2">
+            <a class="btn btn-outline-primary" asp-controller="Management" asp-action="Index">Go Back</a>
+            <a class="btn btn-outline-info" asp-controller="Book" asp-action="GetPdf" asp-route-id="@Model.Id">Go to book</a>
+            <button type="submit" class="btn btn-outline-success">Apply</button>
+        </div>
+    </form>
+</div>

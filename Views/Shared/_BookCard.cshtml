@@ -1,0 +1,15 @@
+﻿@model Book
+
+<div class="card m-1 p-1" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text in-row"><b>Description: </b>@Model.Description</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Pages: </b>@Model.TotalPagesNum</li>
+    </ul>
+    <div class="card-body">
+        <a asp-controller="Home" asp-action="BookPage" asp-route-id="@Model.Id"
+           class="btn btn-outline-success">Read</a>
+    </div>
+</div>

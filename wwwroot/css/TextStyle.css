@@ -1,0 +1,13 @@
+﻿.cool-p {
+    text-indent: 40px;
+    text-align: justify;
+    font: 16px / 28px Georgia, 'Times New Roman', Serif;
+}
+.book {
+    height: 85vh;
+    width: 100%;
+}
+.in-row{
+    height: 100px;
+    overflow:hidden;
+}

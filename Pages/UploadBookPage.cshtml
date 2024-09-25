@@ -1,0 +1,28 @@
+﻿@page "/book/upload"
+@model UploadBookPageModel
+
+<div class="d-flex justify-content-center">
+	<div class="col-lg-6 mt-3">
+		<form method="post" enctype="multipart/form-data">
+			@Html.AntiForgeryToken()
+			<div class="form-group">
+				<label class="form-label">Book Name</label>
+				<input type="text" asp-for="Name" class="form-control" />
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Book Description</label>
+				<input type="text" asp-for="Description" class="form-control" />
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<lable class="form-label">UploadFile</lable>
+				<input type="file" asp-for="File" accept=".pdf" class="form-control" />
+				<span asp-validation-for="File" class="text-danger"></span>
+			</div>
+			<a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary mt-2">Go Back</a>
+			<button type="submit" class="btn btn-success mt-2">Upload</button>
+		</form>
+	</div>
+
+</div>

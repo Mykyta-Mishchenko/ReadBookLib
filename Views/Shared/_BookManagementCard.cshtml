@@ -1,0 +1,32 @@
+﻿@model Book
+@{
+    var statusColor = "";
+    switch (Model.Status)
+    {
+        case BookStatus.Admited :
+            statusColor = "#2d8c46";
+            break;
+        case BookStatus.Uploaded :
+            statusColor = "#FFC107";
+            break;
+        case BookStatus.Deleted :
+            statusColor = "#ADB5BD";
+            break;
+    }
+}
+<div class="card m-1 p-1" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text in-row"><b>Description: </b>@Model.Description</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Pages: </b>@Model.TotalPagesNum</li>
+        <li class="list-group-item" style="background-color: @statusColor;">
+            <b>Status: </b>@Model.Status.ToString()</li>
+    </ul>
+    <div class="card-body">
+        <a asp-controller="Management" asp-action="Revision" 
+            asp-route-bookId="@Model.Id" asp-route-page="@TempData["currentPage"]"
+           class="card-link">Review</a>
+    </div>
+</div>

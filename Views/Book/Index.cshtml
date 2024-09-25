@@ -1,0 +1,13 @@
+﻿@model Book
+
+<object data="@Url.Action("GetPdf", "Book", new {Id = @Model.Id})"
+        type="application/pdf" class="book">
+    Your browser does not support PDFs.
+    <a asp-controller="Book" asp-action="GetPdf" asp-route-id="@Model.Id">Download the PDF</a>.
+</object>
+<div class="d-flex justify-content-between">
+    <a asp-controller="Home" asp-action="BookPage" asp-route-id="@Model.Id"
+       class="btn btn-outline-primary">Go Back</a>
+    <a asp-controller="Book" asp-action="GetPdf" asp-route-id="@Model.Id"
+       download="@Model.Name"class="btn btn-outline-warning">Download the PDF</a>
+</div>

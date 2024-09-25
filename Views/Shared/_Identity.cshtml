@@ -1,0 +1,25 @@
+﻿@{
+    bool isLogged = User.Identity?.IsAuthenticated ?? false;
+    bool inRole = User.IsInRole("Admin");
+    bool isManagement = Context.Request.Path.ToString() == "/Management";
+}
+@if(isLogged){
+    @if (inRole)
+    {
+        if (isManagement)
+        {
+            <a class="btn btn-outline-info my-2 my-sm-0" asp-controller="Home" asp-action="Index">Home</a>
+        }
+        else
+        {
+            <a class="btn btn-outline-info my-2 my-sm-0" asp-controller="Management" asp-action="Index">Management</a>
+
+        }
+    }
+    <a class="btn btn-outline-warning my-2 my-sm-0" asp-controller="Identity" asp-action="SignOut">Sign out</a>
+}
+else
+{
+    <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Identity" asp-action="SignUp">Sign up</a>
+    <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Identity" asp-action="SignIn">Sign in</a>
+}
