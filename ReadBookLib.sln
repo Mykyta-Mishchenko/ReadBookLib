@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadBookLib", "ReadBookLib.csproj", "{91E10CAF-F174-4AD5-A734-4090C321F561}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadBookLib.Test", "..\ReadBookLib.Test\ReadBookLib.Test.csproj", "{15D10712-1CB3-49BE-95AF-F4B129116555}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{91E10CAF-F174-4AD5-A734-4090C321F561}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91E10CAF-F174-4AD5-A734-4090C321F561}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91E10CAF-F174-4AD5-A734-4090C321F561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15D10712-1CB3-49BE-95AF-F4B129116555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15D10712-1CB3-49BE-95AF-F4B129116555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15D10712-1CB3-49BE-95AF-F4B129116555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15D10712-1CB3-49BE-95AF-F4B129116555}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
